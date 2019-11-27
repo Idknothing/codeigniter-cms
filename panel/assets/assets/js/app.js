@@ -55,7 +55,7 @@
 
 	// initialize main
 	app.$main.addClass('in');
-	
+
 	app.init = function() {
 
 		$('[data-plugin]').plugins();
@@ -63,7 +63,7 @@
 
 		// load some needed libs listed at: LIBS.others => library.js
 		var loadingLibs = loader.load(LIBS["others"]);
-		
+
 		loadingLibs.done(function(){
 
 			$('[data-switchery]').each(function(){
@@ -113,7 +113,7 @@
 
 			$(window).on('load', function(e) {
 				var current = Breakpoints.current();
-				
+
 				// highlight the open page's link
 				if (app.topbarLayout && current.name !== 'xs')
 					$(document).on('app-menu.reduce.done', self.highlightOpenLink.bind(self));
@@ -122,7 +122,7 @@
 
 				// if (default) layout then init scroll
 				app.defaultLayout && !self.folded && self.initScroll();
-				
+
 				self.cloneAppUser() && self.foldAppUser();
 
 				// mobile or tablet
@@ -132,7 +132,7 @@
 
 					// push the menubar out
 					self.pushOut();
-					
+
 					// if the menubar is folded then unfold it
 					self.folded && self.unFold();
 				}
@@ -237,7 +237,7 @@
 				$menuItems.each(function(i, item){
 					if (i >= 5) $(item).clone().appendTo($moreItemsUl);
 				});
-				
+
 				$moreItemsLi.append([$moreItemsToggle, $moreItemsUl]).insertAfter($appMenu.find('>li:nth-child(5)'));
 			}
 
@@ -284,7 +284,7 @@
 			$body.addClass('menubar-in') && $menubarToggleButton.addClass('is-active') && (this.open = true);
 			return true;
 		},
-		
+
 		pushOut: function() {
 			$body.removeClass('menubar-in') && $menubarToggleButton.removeClass('is-active') && (this.open = false);
 			return true;
@@ -350,7 +350,7 @@
 		highlightOpenLink: function() {
 			var currentPageName = location.pathname.slice(location.pathname.lastIndexOf('/') + 1),
 					currentPageLink = $appMenu.find('a[href="'+currentPageName+'"]').first();
-			
+
 			currentPageLink.parents('li').addClass('active');
 
 			if ($body.hasClass('menubar-left') && !this.folded) {
@@ -359,7 +359,7 @@
 
 			return true;
 		},
-		
+
 		// gets the DOM applied theme
 		getAppliedTheme: function() {
 			var appliedTheme = "", themes = app.settings.menubar.themes, theme;
@@ -397,7 +397,7 @@
 // =====================
 
 +function($, window){ 'use strict';
-	
+
 	// Cache DOM
 	var $body = app.$body,
 			$navbar = app.$navbar;
@@ -463,7 +463,7 @@
 // =====================
 
 +function($, window){ 'use strict';
-	
+
 	// Cache DOM
 	var $body = app.$body,
 			$menubar = app.$menubar,
@@ -557,6 +557,12 @@
 	window.app.menubar.init();
 	window.app.navbar.init();
 	window.app.customizer.init();
+	app.menubar.setTheme('dark');
+	app.menubar.applyTheme();
+
+	app.navbar.setTheme('warning');
+	app.navbar.applyTheme();
+	app.saveSettings();
 }(jQuery, window);
 
 // other
