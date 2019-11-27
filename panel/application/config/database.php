@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	=> 'mysql:dbname=cms;host=localhost;port=3308',
 	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
-	'dbdriver' => 'mysqli',
+	'username' => 'root',
+	'password' => '1234',
+	'database' => 'cms',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
