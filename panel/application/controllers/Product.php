@@ -7,14 +7,25 @@ class Product extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
+
 		$this->viewFolder = "product_v";
+
+		$this->load->model("product_model");
   }
 
   function index()
   {
 		$viewData =  new stdClass();
+
+
+		/** Tablodan Verilerin Getirilmesi..*/
+		$items = $this->product_model->get_all();
+
+		/** View'e gönderilecek Değişkenlerin Set Edilmesi**/
 		$viewData->viewFolder = $this->viewFolder;
 		$viewData->subViewFolder = "list";
+		$viewData->items = $items;
+
 		$this->load->view("{$this->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
   }
 
