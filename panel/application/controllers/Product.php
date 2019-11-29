@@ -54,7 +54,7 @@ class Product extends CI_Controller{
 			$insert = $this->product_model->add(array(
 				"title" 			=> $this->input->post("title"),
 				"description" => $this->input->post("description"),
-				"url" 				=> "test",
+				"url" 				=> convertToSEO($this->input->post('title')),
 				"rank"				=> 0,
 				"isActive"		=> 1,
 				"createdAt"		=> date("Y-m-d H:i:s")
