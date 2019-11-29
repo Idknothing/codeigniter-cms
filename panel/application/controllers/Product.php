@@ -59,10 +59,11 @@ class Product extends CI_Controller{
 				"isActive"		=> 1,
 				"createdAt"		=> date("Y-m-d H:i:s")
 			));
+			//TODO alert sistemi eklenecek
 			if($insert){
-				echo "kayıt işlemi başarılıdır..";
+				redirect(base_url('product'));
 			}else {
-				echo "Kayıt işlemi başarısızdır";
+				redirect(base_url('product'));
 			}
 		}else{
 			$viewData =  new stdClass();
