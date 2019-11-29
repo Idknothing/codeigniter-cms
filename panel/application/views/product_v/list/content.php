@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <h4 class="m-b-lg">
       Ürün Listesi
-      <a class="btn btn-primary btn-outline btn-xs pull-right" href="#"><i class="fa fa-plus"></i>Yeni Ekle</a>
+      <a class="btn btn-primary btn-outline btn-xs pull-right" href="<?php echo base_url('product/new_form') ?>"><i class="fa fa-plus"></i>Yeni Ekle</a>
     </h4>
   </div><!-- END column -->
   <div class="col-md-12">
